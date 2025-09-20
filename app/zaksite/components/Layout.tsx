@@ -129,8 +129,11 @@ export default function Layout() {
     //let typebtnvalue =  "st";
    const finalValue = btnValue ?? typebtnvalue ?? "st";
 
-   const [monthFrom, yearFrom] = data.fromValue?.split("s") || "";
-  const [monthTo, yearTo] = data.toValue?.split("s") || "";
+   const yearFrom = data.fromValue?.split("s") || "";
+  const  yearTo = data.toValue?.split("s") || "";
+
+  //const [yearFrom] = data.fromValue?.split("s") || "";
+  //const [yearTo] = data.toValue?.split("s") || "";
   
   if(yearFrom > yearTo){
     alert('[To] date cannot be older than [From] date.')
