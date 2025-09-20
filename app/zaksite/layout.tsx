@@ -1,6 +1,6 @@
 
 import Header from "./components/header";
-import Sidebar from "./components/sidebar";
+import Sidebar from "./components/Sidebar";
 
 export default function ZaksiteLayout({ children }: { children: React.ReactNode }) {
   return (
