@@ -106,7 +106,7 @@ case "yr":
     //console.log("Executing SQL Query:\n", printQuery);
       
 
-    const [rows] = await connection.execute(query,values);
+    const [rows]:any = await connection.execute(query,values);
     const valuedec = "N";
     const dataobject = (rows as any[]).map((row: any) => {
        // const dataobject = rows.map((row) => {    

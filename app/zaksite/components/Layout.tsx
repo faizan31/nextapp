@@ -64,12 +64,12 @@ export default function Layout() {
      const [ytdChecked, setYtdChecked] = useState(false);
     //const [frequency, setFrequency] = useState(""); // Stores selected frequency
     const [years, setYears] = useState<Optionfyear[]>([]); 
-    const [selectedYear, setSelectedYear] = useState(""); 
+    //const [selectedYear, setSelectedYear] = useState(""); 
     const [datebtnvalue, setDateBtnValue] = useState<string>(""); 
-    const [yearsFrom, setYearsFrom] = useState<any[]>([]);
-      const [yearsTo, setYearsTo] = useState<any[]>([]);
-    const [selectedRowdata , setSelectedRowData] = useState(null)
-    const [showChart, setShowChart] = useState(false);
+    //const [yearsFrom, setYearsFrom] = useState<any[]>([]);
+     // const [yearsTo, setYearsTo] = useState<any[]>([]);
+    //const [selectedRowdata , setSelectedRowData] = useState(null)
+   // const [showChart, setShowChart] = useState(false);
     
   
   const [popupOpen, setPopupOpen] = useState(false);
