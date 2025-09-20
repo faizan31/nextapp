@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { SidebarProvider } from "./zaksite/components/SidebarContext";
-import Sidebar from "./zaksite/components/sidebar";
+import Sidebar from "./zaksite/components/Sidebar";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
