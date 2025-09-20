@@ -1,29 +1,16 @@
 "use client";
 import React, { useState ,useEffect } from 'react'
-import Link from 'next/link'
+
 import { Button  } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem, SelectLabel } from "@/components/ui/select";
+
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 import FieldSelect from './FieldSelect';
-import { Card } from "@/components/ui/card";
+
 import { BarChart3 } from "lucide-react";
 import { getUniqueHeaders, transformDataToRows } from '../utils/tableHelpers';
 import ChartModal from "./ChartModal";
 
 
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  
-} from "@/components/ui/sidebar"
-import { cn } from "@/lib/utils"; // Utility for conditional classes
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 
 
 

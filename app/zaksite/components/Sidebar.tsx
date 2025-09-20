@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
-import { Menu, Grid, Briefcase, LineChart, BarChart, ShieldAlert, Banknote, Building2, Globe, PieChart, HelpCircle, Lock, 
+import { Menu, Grid, Briefcase, LineChart, BarChart, Banknote, PieChart, HelpCircle, Lock, 
   FileText } from "lucide-react";
 
 export default function Sidebar() {

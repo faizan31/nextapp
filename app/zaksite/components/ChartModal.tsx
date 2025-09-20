@@ -3,8 +3,6 @@
 import React, { useEffect } from "react";
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
-import Image from "next/image";
-import Link from "next/link"
 import { useMemo } from "react";
 
 
@@ -64,7 +62,7 @@ export default function ChartModal({
         categoryAxis.endLocation = 0.5;
       	
 
-      let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+      const valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
       valueAxis.title.fill = am4core.color("#3a3c3e");
 
 

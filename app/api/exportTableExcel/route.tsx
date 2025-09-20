@@ -73,10 +73,11 @@ export async function GET(req: Request) {
     // console.log("Executing SQL Query:\n", printQuery);
       
 
-       const [rows] = await connection.execute(query,values);
+       const [rows]:any = await connection.execute(query,values);
+        //const [rows] = await connection.query<Record<string, unknown>[]>(query);
 
        // Your query
-    const [nt] = await connection.execute(
+    const [nt]:any = await connection.execute(
       "SELECT tdrplabel FROM ec_thead WHERE mcode = 'FSA' AND tcode = ?",
       [field]  
     );
