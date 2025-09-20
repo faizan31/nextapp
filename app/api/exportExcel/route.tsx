@@ -79,7 +79,7 @@ case "qt":
     const [rows] = await connection.execute(query,values); 
     
     
-    const valuedec = "N";
+    //const valuedec = "N";
     
     
 

@@ -50,7 +50,7 @@ export async function GET(req: Request) {
       port: Number(process.env.DATABASE_PORT),
     });
 
-    console.log("Database connected successfully!");
+    //console.log("Database connected successfully!");
     
     const tableName = `ec_fs_${st}_${usedTableName}`;
 
@@ -69,7 +69,7 @@ export async function GET(req: Request) {
 
     const values = [field, yearFrom, yearTo, yearFrom,monthFrom,yearTo,monthTo];
    
-    const printQuery = mysql.format(query, values);
+    //const printQuery = mysql.format(query, values);
     // console.log("Executing SQL Query:\n", printQuery);
       
 

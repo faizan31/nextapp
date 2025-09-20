@@ -1,4 +1,4 @@
-import Image from "next/image";
+//import Image from "next/image";
 
 import { SidebarProvider } from "./zaksite/components/SidebarContext";
 import Sidebar from "./zaksite/components/Sidebar";

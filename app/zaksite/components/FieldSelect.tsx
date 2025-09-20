@@ -1,8 +1,8 @@
 "use client";
 import React, { useState ,useEffect } from 'react'
-import Link from 'next/link'
 
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem, SelectLabel } from "@/components/ui/select";
+
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 
   interface Option {
     tcode: string;

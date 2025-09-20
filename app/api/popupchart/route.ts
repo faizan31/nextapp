@@ -102,7 +102,7 @@ case "yr":
     //const values = [acode,yearFrom,yearTo, acode,];
      const values = [acode, yearFrom,yearTo,yearFrom,monthFrom,yearTo,monthTo];
    
-    const printQuery = mysql.format(query, values);
+    //const printQuery = mysql.format(query, values);
     //console.log("Executing SQL Query:\n", printQuery);
       
 
