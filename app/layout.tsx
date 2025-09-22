@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { SidebarProvider } from "./zaksite/components/SidebarContext";
+import Sidebar from "./zaksite/components/Sidebar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,12 +21,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" data-theme="winter">
-        <head>
+      <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
           rel="stylesheet"
@@ -33,7 +35,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <SidebarProvider>
+          <div className="flex">
+            <Sidebar />
+            <main className="flex-1 p-4">{children}</main>
+          </div>
+        </SidebarProvider>
       </body>
     </html>
   );
