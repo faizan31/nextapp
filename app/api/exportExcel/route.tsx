@@ -1,9 +1,6 @@
 
 import mysql from "mysql2/promise";
 
-
-
-
 export async function GET(req: Request) {
   let connection;
 
@@ -84,7 +81,7 @@ case "qt":
     
 
 
-   let output =(pname) + " | " + sname + "\n" + 
+   const output =(pname) + " | " + sname + "\n" + 
     frequencyName + " | " + unit + "\n\n" + 
    "Period\tValue\n" +
    (rows as any[])

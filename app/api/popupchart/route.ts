@@ -3,7 +3,7 @@ import mysql from "mysql2/promise";
 
 export async function GET(req: Request) {
   //console.log("API route hit!");
-  //console.log("Full request URL:", req.url);
+ 
 
   let connection;
 

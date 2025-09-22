@@ -10,10 +10,7 @@ import { BarChart3 } from "lucide-react";
 import { getUniqueHeaders, transformDataToRows } from '../utils/tableHelpers';
 import ChartModal from "./ChartModal";
 
-
-
-
-
+// interface
 interface FormData {
   fielOption: string;
   selectedOption: string;
@@ -26,7 +23,7 @@ interface FormData {
 
 export default function Layout() {
 
-
+   // defualt value set
   const [formData, setformData]= useState<FormData>({
 
       fielOption:"FSA01" ,
@@ -638,21 +635,21 @@ const downloadExcel = async () => {
 
          {tableData.length > 0 && (
 
-            <div className="relative overflow-hidden">
+            <div className="overflow-hidden">
               <div className="overflow-auto" style={{ maxHeight: 'calc(95vh - 200px)' }}>
                 <table className="min-w-full border-collapse border border-gray-300 text-sm">
                   <thead className="bg-gray-100 sticky top-0 z-20 text-[#0a60a3] ">
                     <tr>
-                      <th className="border px-4 py-2 text-left bg-gray-100 sticky left-0 top-0 z-20 min-w-[370px] font-medium">Description</th>
+                      <th className="border px-4 py-2 text-left bg-gray-100 sticky left-0  z-20 min-w-[370px] font-medium">Description</th>
                       {getUniqueHeaders(tableData,formData.selectedOption).map((header) => (
-                        <th key={header} className="border px-4 py-2 text-right sticky top-0 bg-gray-100 min-w-[120px] font-medium">
+                        <th key={header} className="border px-4 py-2 text-right  top-0 bg-gray-100 min-w-[120px] font-medium">
                           {header}
                         </th>
                       ))}
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200">
-                    {transformDataToRows(tableData,formData.selectedOption).map((row,index) => (
+                    {transformDataToRows(tableData).map((row,index) => (
                       <tr key={row.acode || row.description} className="hover:bg-gray-50">
                         <td className="border px-4 py-2 text-left sticky left-0  z-10 bg-white min-w-[200px]">
                         <button    onClick={() => chartButtonClick(row)}>

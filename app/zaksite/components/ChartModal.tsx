@@ -47,11 +47,11 @@ export default function ChartModal({
     if (open && data.length > 0) {
        am4core.disposeAllCharts();
         am4core.addLicense("CH28809345");
-      let chart = am4core.create("chartdiv_pop_new", am4charts.XYChart);
+      const chart = am4core.create("chartdiv_pop_new", am4charts.XYChart);
       chart.data = data;
        chart.fontSize=11;
        //chart.fontFamily="'Tahoma'"
-      let categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+      const categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
       categoryAxis.dataFields.category = "date";
      // categoryAxis.title.text = "Date";
      categoryAxis.renderer.minGridDistance = 50;
@@ -98,7 +98,7 @@ valueAxis.cursorTooltipEnabled= false;
 
     if (series instanceof am4charts.LineSeries) {
       series.strokeWidth = 1.5;
-      var gradient = new am4core.LinearGradient();
+      const gradient = new am4core.LinearGradient();
         gradient.addColor(am4core.color("#5a9bd5"));
         gradient.addColor(am4core.color("white"));
 
@@ -126,7 +126,7 @@ valueAxis.cursorTooltipEnabled= false;
       
 
       // Add watermark
-      var watermark = new am4core.Label();
+      const watermark = new am4core.Label();
       watermark.text = "Zakheera.com";
       watermark.align = "center"; // Center horizontally
       watermark.valign = "middle"; // Center vertically
@@ -135,7 +135,7 @@ valueAxis.cursorTooltipEnabled= false;
       watermark.rotation = -45; // Apply rotation
       chart.plotContainer.children.push(watermark);
 
-      var lastDate = categoryAxis.axisRanges.create();
+      const lastDate = categoryAxis.axisRanges.create();
     lastDate.category = chart.data[chart.data.length - 1]["date"];
      lastDate.label.align = "right";
 

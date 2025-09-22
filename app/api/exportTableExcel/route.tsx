@@ -6,18 +6,13 @@ import { getUniqueHeaders, transformDataToRows } from "../../zaksite/utils/table
 
 export async function GET(req: Request) {
 //  console.log("API route hit!");  
-  //console.log("Full request URL:", req.url);
-
+ 
   let connection;
 
   try {
-    // Ensure we have a proper URL object
-
+    
     //const url = new URL(req.url, `http://${req.headers.get('host') || 'localhost'}`);
     const { searchParams } = new URL(req.url);
-   
-    
-
     const field = searchParams.get("field");
     const frequency = searchParams.get("frequency");
     console.log(frequency)
@@ -50,7 +45,7 @@ export async function GET(req: Request) {
       port: Number(process.env.DATABASE_PORT),
     });
 
-    //console.log("Database connected successfully!");
+    
     
     const tableName = `ec_fs_${st}_${usedTableName}`;
 
@@ -76,7 +71,7 @@ export async function GET(req: Request) {
        const [rows]:any = await connection.execute(query,values);
         //const [rows] = await connection.query<Record<string, unknown>[]>(query);
 
-       // Your query
+
     const [nt]:any = await connection.execute(
       "SELECT tdrplabel FROM ec_thead WHERE mcode = 'FSA' AND tcode = ?",
       [field]  
@@ -85,10 +80,8 @@ export async function GET(req: Request) {
    
     const finalHeading = (nt as any)[0].tdrplabel;
     const headers = getUniqueHeaders(rows as any[],frequency);
-   // console.log(headers)
-   
-     
-    const transformedRows = transformDataToRows(rows as any[],frequency);
+
+    const transformedRows = transformDataToRows(rows as any[]);
     //console.log(transformedRows)
     const fixedHeaders = headers.map((h: string) => {
       const q = h[0];
@@ -105,7 +98,7 @@ export async function GET(req: Request) {
         newKey = `1-${fullYcear}`; 
 
        }
-      console.log("Header:", h, "=>", newKey);
+      //console.log("Header:", h, "=>", newKey);
       return newKey;
         });
 
@@ -119,8 +112,6 @@ export async function GET(req: Request) {
       transformedRows.forEach((row:any)  => {
       const rowValues = [
         row.description,
-        //...fixedHeaders.map((h: string) => row[h] ?? "-")
-        //...fixedHeaders.map(h => row[h.newKey] ?? "-") 
         ...fixedHeaders.map((h: string) => row[h] ?? "-")
       ];
       

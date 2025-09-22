@@ -32,7 +32,7 @@ export const getUniqueHeaders = (data,frequency) => {
 
 
 
-export const transformDataToRows = (data,frequency) => {
+export const transformDataToRows = (data) => {
   if (!data || data.length === 0) return [];
   
   //const headers = getUniqueHeaders(data);
