@@ -199,7 +199,7 @@ if (typebtnvalue === "st") {
 
     useEffect(() => {
     
-      let frequency = formData.selectedOption
+      const frequency = formData.selectedOption
       //let fromvalue = formData.fromvalue
       //console.log("from changed to:", formData.fromValue);
       async function fetchYears() {
@@ -210,7 +210,7 @@ if (typebtnvalue === "st") {
           const data = await res.json();
           setYears(data); // Update state with fetched data
         } catch (error) {
-          //console.error("Error fetching data:", error);
+          console.error("Error fetching data:", error);
         }
       }
       fetchYears();
