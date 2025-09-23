@@ -7,7 +7,7 @@ export async function GET(req: Request) {
   //console.log("Full request URL:", req.url);
 
   //let connection;
-  let connection = await getConnection();
+  const connection = await getConnection();
 
   try {
     // Ensure we have a proper URL object

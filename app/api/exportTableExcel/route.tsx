@@ -9,7 +9,7 @@ export async function GET(req: Request) {
 //  console.log("API route hit!");  
  
   //let connection;
-  let connection = await getConnection();
+  const connection = await getConnection();
 
   try {
     

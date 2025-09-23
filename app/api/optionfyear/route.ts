@@ -4,7 +4,7 @@ import { getConnection } from "../../zaksite/utils/db"
 
 export async function GET(req: Request) {
   //let connection;
-    let connection = await getConnection();
+    const connection = await getConnection();
   try {
     const { searchParams } = new URL(req.url);
     const frequency = searchParams.get("frequency");

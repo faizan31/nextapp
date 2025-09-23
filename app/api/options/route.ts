@@ -4,7 +4,7 @@ import { getConnection } from "../../zaksite/utils/db"
 
 export async function GET() {
   //let connection;
-    let connection = await getConnection();
+    const connection = await getConnection();
 
   try {
     
