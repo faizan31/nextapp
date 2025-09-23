@@ -1,8 +1,11 @@
 
-import mysql from "mysql2/promise";
+import { NextResponse } from "next/server";
+//import mysql from "mysql2/promise";
+import { getConnection } from "../../zaksite/utils/db"
 
-export async function GET(req: Request) {
-  let connection;
+  export async function GET(req: Request) {
+  //let connection;
+  let connection = await getConnection();
 
    const { searchParams } = new URL(req.url);
    const acode = searchParams.get("pcode");
@@ -28,14 +31,7 @@ export async function GET(req: Request) {
           
   try {
    
-    connection = await mysql.createConnection({
-          host: process.env.DATABASE_HOST,
-          user: process.env.DATABASE_USER,
-          password: process.env.DATABASE_PASSWORD,
-          database: process.env.DATABASE_NAME,
-          port: Number(process.env.DATABASE_PORT),
-        });
-
+   
     const tableName = `ec_fs_${st}_${usedTableName}`;
     //console.log("Table name:", tableName);
 
@@ -94,10 +90,11 @@ case "qt":
         "Content-Disposition": `attachment; filename="report_${Date.now()}.xls"`,
       },
     });
-  } catch (err: any) {
-    console.error("Excel generation error:", err);
-    return new Response("Error: " + (err.message || JSON.stringify(err)), { status: 500 });
-  } finally {
-    if (connection) await connection.end();
-  }
+  } catch (error) {
+    
+      return NextResponse.json(
+        { error: "Internal Server Error", details: error instanceof Error ? error.message : String(error) },
+        { status: 500 }
+      );
+    } 
 }

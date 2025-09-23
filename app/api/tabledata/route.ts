@@ -1,11 +1,13 @@
 import { NextResponse } from "next/server";
-import mysql from "mysql2/promise";
+//import mysql from "mysql2/promise";
+import { getConnection } from "../../zaksite/utils/db"
 
 export async function GET(req: Request) {
 //  console.log("API route hit!");
   //console.log("Full request URL:", req.url);
 
-  let connection;
+  //let connection;
+  let connection = await getConnection();
 
   try {
     // Ensure we have a proper URL object
@@ -58,13 +60,13 @@ export async function GET(req: Request) {
     }
 
     // Database connection
-      connection = await mysql.createConnection({
+      /*connection = await mysql.createConnection({
         host: process.env.DATABASE_HOST,
         user: process.env.DATABASE_USER,
         password: process.env.DATABASE_PASSWORD,
         database: process.env.DATABASE_NAME,
         port: Number(process.env.DATABASE_PORT),
-       });
+       });*/
 
        console.log("Database connected successfully!");
     

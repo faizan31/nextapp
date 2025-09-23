@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import mysql from "mysql2/promise";
+//import mysql from "mysql2/promise";
+import { getConnection } from "../../zaksite/utils/db"
 
 import { getUniqueHeaders, transformDataToRows } from "../../zaksite/utils/tableHelpers";
 
@@ -7,7 +8,8 @@ import { getUniqueHeaders, transformDataToRows } from "../../zaksite/utils/table
 export async function GET(req: Request) {
 //  console.log("API route hit!");  
  
-  let connection;
+  //let connection;
+  let connection = await getConnection();
 
   try {
     
@@ -36,16 +38,6 @@ export async function GET(req: Request) {
      addperiod = `and period=${monthTo}`;
        }
           
-
-    connection = await mysql.createConnection({
-      host: process.env.DATABASE_HOST,
-      user: process.env.DATABASE_USER,
-      password: process.env.DATABASE_PASSWORD,
-      database: process.env.DATABASE_NAME,
-      port: Number(process.env.DATABASE_PORT),
-    });
-
-    
     
     const tableName = `ec_fs_${st}_${usedTableName}`;
 
@@ -67,7 +59,6 @@ export async function GET(req: Request) {
     //const printQuery = mysql.format(query, values);
     // console.log("Executing SQL Query:\n", printQuery);
       
-
        const [rows]:any = await connection.execute(query,values);
         //const [rows] = await connection.query<Record<string, unknown>[]>(query);
 

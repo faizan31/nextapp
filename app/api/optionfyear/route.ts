@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server";
-import mysql from "mysql2/promise";
+//import mysql from "mysql2/promise";
+import { getConnection } from "../../zaksite/utils/db"
 
 export async function GET(req: Request) {
-  let connection;
-
+  //let connection;
+    let connection = await getConnection();
   try {
     const { searchParams } = new URL(req.url);
     const frequency = searchParams.get("frequency");
@@ -11,15 +12,16 @@ export async function GET(req: Request) {
     //console.log(usedTableName )
 
     
-    connection = await mysql.createConnection({
+    /*connection = await mysql.createConnection({
       host: process.env.DATABASE_HOST,
       user: process.env.DATABASE_USER,
       password: process.env.DATABASE_PASSWORD,
       database: process.env.DATABASE_NAME,
       port: Number(process.env.DATABASE_PORT),
-    });
+     
+    });*/
 
-    console.log("Database connected successfully!");
+    //console.log("Database connected successfully!");
     let sel_qry = '';
    if(usedTableName == 'y'){
     sel_qry= `select displayvalue,1 as mmonth,fyear from dropdownfiscal where period=?
