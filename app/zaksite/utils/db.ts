@@ -7,6 +7,8 @@ export async function getConnection() {
         password: process.env.DATABASE_PASSWORD,
         database: process.env.DATABASE_NAME, // your db name
        port:  3306,
+       
+      // uri: process.env.DATABASE_URL as string,
     /*sssl: {
       rejectUnauthorized: false, // some providers require SSL
     },*/
